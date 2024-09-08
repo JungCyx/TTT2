@@ -1,0 +1,8 @@
+class TicTacToe{
+    private final int BOARDSIZE = 3;
+    private char[][] board;
+    private boolean firstPLayer;
+    private boolean gameOver;
+    
+
+}
