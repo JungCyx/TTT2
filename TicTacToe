@@ -1,8 +1,35 @@
-class TicTacToe{
+public class TicTacToe{
     private final int BOARDSIZE = 3;
     private char[][] board;
     private boolean firstPLayer;
     private boolean gameOver;
+
+
+    /*Constructor to start a new board
+     * there is no parameter and no returing value because it is just 
+     * initializing the value of the empty game
+     */
+    public TicTacToe(){
+        board = new char[BOARDSIZE][BOARDSIZE];//3X3 board
+        firstPLayer = true; //player 1 gets X and player 2 gets 0
+        gameOver = false; // initializing game 
+        emptyBoard();// method to set all the spots with no inititial value
+    }
+
+
+    /* Method to initialize the board
+    * there is no parameters and will return anything
+    */
+    private void emptyBoard(){
+        for(int i =0; i< BOARDSIZE; i++){//ROWS
+            for int j =0; j< BOARDSIZE, j++){//COLUMNS
+                board[i][j] = " ";//every square will start empty
+            }
+        }
+
+    }
+
     
+
 
 }
