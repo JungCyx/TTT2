@@ -19,6 +19,7 @@ public class TicTacToe{
 
     /* Method to initialize the board
     * there is no parameters and will return anything
+    *It is private because we do not want the player's or anybody to change the starting values
     */
     private void emptyBoard(){
         for(int i =0; i< BOARDSIZE; i++){//ROWS
@@ -29,7 +30,24 @@ public class TicTacToe{
 
     }
 
-    
+
+    /*Method to print player's turn
+     * private because it is used to just diplay info not change anything
+     * Parameter is the player and it is an int because its either player 1 or 2
+     * there is no retun value because it is just displaying which player's turn it is
+     */
+    private printCurrentPLayer(int player){
+        if(player == 1){
+            System.out.println("Player X's turn.");
+
+        }
+        else{
+            System.out.println("Player O's turn.");
+        }
+
+    }
+
+
 
 
 }
