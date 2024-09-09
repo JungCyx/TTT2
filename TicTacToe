@@ -26,7 +26,6 @@ public class TicTacToe{
         scanner = new Scanner(System.in); // scanner to take the input from the user 
         mappedPlyers = new Hashtable<>();
         emptyBoard();// method to set all the spots with no inititial value
-        play();
     }
 
 
@@ -44,15 +43,12 @@ public class TicTacToe{
     }
 
     private void play(){
-        
-        playerTrun = 0
-        mappedPlyers.put(true, "X")
-        mappedPlyers.put(false, "O")
+        int playerTrun = 0;
+        mappedPlyers.put(true, "X");
+        mappedPlyers.put(false, "O");
         Status currentStatus = Status.CONTINUE;
 
-
         while (!gameOver) {
-
             if (firstPLayer)
             {playerTrun = 1}
             else
@@ -67,9 +63,18 @@ public class TicTacToe{
             }
         }
 
-        
+        // the switch case checks who has won the game and display massage accordingly 
+        switch (currentStatus) {
+            case WIN:
+                char winner = playerTrun.get(!firstPLayer);
+                System.out.println(winner + " You won the game!");
+                break;
+            case DRAW:
+                System.out.println("No player won the gagme its a DRAW");
+                break;
 
     }
+}
 
     /*Method to print player's turn
      * private because it is used to just diplay info not change anything
@@ -86,23 +91,23 @@ public class TicTacToe{
             System.out.println("Player X's turn.");
 
             System.out.println("Player X: Enter row (0, 1 or 2).");
-            int x = scanner.nextInt();
+            x = scanner.nextInt();
 
             System.out.println("Player X: Enter column (0, 1 or 2).");
-            int y = scanner.nextInt();
+            y = scanner.nextInt();
         }
         else{
             System.out.println("Player O's turn.");
 
             System.out.println("Player O: Enter row (0, 1 or 2).");
-            int x = scanner.nextInt();
+            x = scanner.nextInt();
 
             System.out.println("Player O: Enter column (0, 1 or 2).");
-            int y = scanner.nextInt();
+            y = scanner.nextInt();
         }
 
-        coordinates[0] = x
-        coordinates[1] = y
+        coordinates[0] = x;
+        coordinates[1] = y;
 
         return coordinates
     }
@@ -110,25 +115,27 @@ public class TicTacToe{
     
 
 //place (X or O)
+// add some input validation 
 private void printSymbol(int row, int column, char value){
-    board[row][column] = value
+    board[row][column] = value;
 }
 
 public Status gamestatus() {
 //columns and rows
 for(int i=0;i < BOARDSIZE;i++){
-    if (board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
+
+    if (board[i][0] != " " && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
                     return Status.WIN;
     }
-    if (board[0][i] != ' ' && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+    if (board[0][i] != " " && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
                     return Status.WIN;
         }
     }
  //diagonals
-    if (board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+    if (board[0][0] != " " && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
                 return Status.WIN;
         }
-            if (board[0][2] != ' ' && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+            if (board[0][2] != " " && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
                 return Status.WIN;
         }
     
@@ -136,12 +143,22 @@ for(int i=0;i < BOARDSIZE;i++){
     for(int i = 0; i < BOARDSIZE; i++){
         for(int j = 0; j < BOARDSIZE; j++){
             if(board[i][j] == " "){
-                return Status.CONTINUE
+                return Status.CONTINUE;
             }
         }
     }
-    return Status.DRAW
+    return Status.DRAW;
 
+        }
+
+
+    // Main method: entry point of the program
+    public static void main(String[] args) {
+        // Print a message to the console
+        TicTacToe game = new TicTacToe();
+        game.play();
+    }
+    
 }
 
-}
+
