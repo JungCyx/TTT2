@@ -7,7 +7,7 @@ public class TicTacToe{
     private boolean firstPLayer;
     private boolean gameOver;
     public Scanner  scanner;
-    public Hashtable<boolean, char> mappedPlyers;
+    public Hashtable<Boolean, Character> mappedPlayers; // Fixed Hashtable type parameters
 
     //Enum game Status
     public enum Status{
