@@ -7,7 +7,7 @@ public class TicTacToe{
     private boolean firstPLayer;
     private boolean gameOver;
     public Scanner  scanner;
-    public Hashtable<boolean, char> mappedPlyers;
+    public Hashtable<Boolean, Character> mappedPlayers; // Fixed Hashtable type parameters
 
     //Enum game Status
     public enum Status{
@@ -24,7 +24,7 @@ public class TicTacToe{
         firstPLayer = true; //player 1 gets X and player 2 gets 0
         gameOver = false; // initializing game
         scanner = new Scanner(System.in); // scanner to take the input from the user 
-        mappedPlyers = new Hashtable<>();
+        mappedPlayers = new Hashtable<>();
         emptyBoard();// method to set all the spots with no inititial value
     }
 
@@ -33,13 +33,12 @@ public class TicTacToe{
     * there is no parameters and will return anything
     *It is private because we do not want the player's or anybody to change the starting values
     */
-    private void emptyBoard(){
-        for(int i =0; i< BOARDSIZE; i++){//ROWS
-            (for int j =0; j< BOARDSIZE, j++){//COLUMNS
-                board[i][j] = " ";//every square will start empty
+    private void emptyBoard() {
+        for (int i = 0; i < BOARDSIZE; i++) { // ROWS
+            for (int j = 0; j < BOARDSIZE; j++) { // COLUMNS
+                board[i][j] = ' '; // Every square will start empty
             }
         }
-
     }
 
     private void play(){
